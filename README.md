@@ -1,35 +1,32 @@
-# Poetry Project Template
+# hwp2docx
 
-A modern Python project template using Poetry for dependency management, featuring best practices and development tools.
-
-> ⭐ **Note**: If you find this template helpful, please give it a star! That's all I need. 😊
+A Python tool for converting HWP (Hancom Word Processor) files to DOCX format, featuring a modern development setup with Poetry for dependency management.
 
 ## 🚀 Features
 
-- **Poetry** for dependency management
-- **Docker** support for containerization
-- **Testing** with pytest and coverage reporting
-- **Code Quality** tools:
+- Convert single HWP files to DOCX
+- Batch convert multiple HWP files in a directory
+- Progress tracking for batch conversions
+- Error handling and reporting
+- Modern development tools:
+  - Poetry for dependency management
   - Black for code formatting
   - isort for import sorting
   - ruff for linting
-- **Development** tools:
-  - pytest-watcher for test watching
-  - poe for task management
+  - pytest for testing
 
 ## 📋 Prerequisites
 
 - Python 3.12 or higher
 - [Poetry](https://python-poetry.org/docs/) 1.8.3 or higher
 - [Poe the Poet](https://poethepoet.natn.io/index.html) for task management
-- Docker (optional)
 
 ## 🛠️ Installation
 
 1. Clone the repository:
    ```bash
    git clone <repository-url>
-   cd poetry-setting
+   cd hwp2docx
    ```
 
 2. Install Poetry (if not already installed):
@@ -47,24 +44,20 @@ A modern Python project template using Poetry for dependency management, featuri
    poetry install
    ```
 
-5. Set up environment variables:
-   ```bash
-   cp default.env .env
-   ```
-
-## 🏗️ Project Structure
-
-```
-.
-├── app/               # Main application code
-├── tests/             # Test files
-├── Dockerfile         # Docker configuration
-├── pyproject.toml     # Poetry configuration
-├── poetry.lock        # Locked dependencies
-└── default.env        # Default environment variables
-```
-
 ## 🚀 Usage
+
+### Convert a Single File
+
+```bash
+poetry run python -m app.main input.hwp -o output.docx
+```
+
+### Convert Multiple Files
+
+To convert all HWP files in a directory:
+```bash
+poetry run python -m app.main /path/to/hwp/files -o /path/to/output
+```
 
 ### Development
 
@@ -72,8 +65,6 @@ Run the application:
 ```bash
 poetry run poe run
 ```
-
-### Testing
 
 Run tests:
 ```bash
@@ -85,34 +76,22 @@ Watch tests:
 poetry run poe watch-test
 ```
 
-### Linting
-
 Run linting:
 ```bash
 poetry run poe lint
 ```
 
-### Docker
+## 🏗️ Project Structure
 
-Build the Docker image:
-```bash
-docker build -t poetry-setting .
 ```
-
-Run the container:
-```bash
-docker run poetry-setting
+.
+├── app/               # Main application code
+│   ├── converter.py  # HWP to DOCX conversion logic
+│   └── main.py       # Command-line interface
+├── tests/            # Test files
+├── pyproject.toml    # Poetry configuration
+└── poetry.lock       # Locked dependencies
 ```
-
-## 🔧 Development Tools
-
-- **Black**: Code formatting
-- **isort**: Import sorting
-- **ruff**: Linting
-- **pytest**: Testing framework
-- **pytest-cov**: Coverage reporting
-- **pytest-watcher**: Test watching
-- **poe**: Task runner
 
 ## 📝 License
 
