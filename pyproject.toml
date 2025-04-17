@@ -1,12 +1,16 @@
 [tool.poetry]
-name = "poetry-setting"
+name = "hwp2docx"
 version = "0.1.0"
-description = ""
+description = "A tool for converting HWP files to DOCX format"
 authors = ["songtov <songchiho777@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
+pyhwp = "^0.1b15"
+python-docx = "^1.1.2"
+click = "^8.1.8"
+tqdm = "^4.67.1"
 
 [tool.poetry.group.dev.dependencies]
 black = "^25.1.0"
